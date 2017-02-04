@@ -46,7 +46,7 @@ BOOST_AUTO_TEST_CASE(tick_position_test_0)
 	const Ruler::TickPositions ts = Ruler::calculate_tick_positions(
 		major_period, offset, scale, width, format);
 
-	BOOST_REQUIRE_EQUAL(ts.major.size(), 6);
+	BOOST_REQUIRE_EQUAL(ts.major.size(), (uint)6);
 
 	BOOST_CHECK_CLOSE(ts.major[0].first,   0, e);
 	BOOST_CHECK_CLOSE(ts.major[1].first, 100, e);
@@ -62,7 +62,7 @@ BOOST_AUTO_TEST_CASE(tick_position_test_0)
 	BOOST_CHECK_EQUAL(ts.major[4].second, "+0.400000 s");
 	BOOST_CHECK_EQUAL(ts.major[5].second, "+0.500000 s");
 
-	BOOST_REQUIRE_EQUAL(ts.minor.size(), 16);
+	BOOST_REQUIRE_EQUAL(ts.minor.size(), (uint)16);
 
 	BOOST_CHECK_CLOSE(ts.minor[ 0], -25, e);
 	BOOST_CHECK_CLOSE(ts.minor[ 1],  25, e);
@@ -92,7 +92,7 @@ BOOST_AUTO_TEST_CASE(tick_position_test_1)
 	const Ruler::TickPositions ts = Ruler::calculate_tick_positions(
 		major_period, offset, scale, width, format);
 
-	BOOST_REQUIRE_EQUAL(ts.major.size(), 5);
+	BOOST_REQUIRE_EQUAL(ts.major.size(), (uint)5);
 
 	BOOST_CHECK_CLOSE(ts.major[0].first,   63, e);
 	BOOST_CHECK_CLOSE(ts.major[1].first,  163, e);
@@ -106,7 +106,7 @@ BOOST_AUTO_TEST_CASE(tick_position_test_1)
 	BOOST_CHECK_EQUAL(ts.major[3].second, "-0.100000 s");
 	BOOST_CHECK_EQUAL(ts.major[4].second,  "0.000000 s");
 
-	BOOST_REQUIRE_EQUAL(ts.minor.size(), 17);
+	BOOST_REQUIRE_EQUAL(ts.minor.size(), (uint)17);
 	BOOST_CHECK_CLOSE(ts.minor[ 0], -12, e);
 	BOOST_CHECK_CLOSE(ts.minor[ 1],  13, e);
 	BOOST_CHECK_CLOSE(ts.minor[ 2],  38, e);
@@ -139,7 +139,7 @@ BOOST_AUTO_TEST_CASE(tick_position_test_2)
 	const double mp = 5;
 	const int off = 8;
 
-	BOOST_REQUIRE_EQUAL(ts.major.size(), 4);
+	BOOST_REQUIRE_EQUAL(ts.major.size(), (uint)4);
 
 	BOOST_CHECK_CLOSE(ts.major[0].first, ( 4 * mp - off) / scale, e);
 	BOOST_CHECK_CLOSE(ts.major[1].first, ( 8 * mp - off) / scale, e);
@@ -151,7 +151,7 @@ BOOST_AUTO_TEST_CASE(tick_position_test_2)
 	BOOST_CHECK_EQUAL(ts.major[2].second, "+60.000000 s");
 	BOOST_CHECK_EQUAL(ts.major[3].second, "+80.000000 s");
 
-	BOOST_REQUIRE_EQUAL(ts.minor.size(), 13);
+	BOOST_REQUIRE_EQUAL(ts.minor.size(), (uint)13);
 
 	BOOST_CHECK_CLOSE(ts.minor[ 0], ( 1 * mp - off) / scale, e);
 	BOOST_CHECK_CLOSE(ts.minor[ 1], ( 2 * mp - off) / scale, e);
